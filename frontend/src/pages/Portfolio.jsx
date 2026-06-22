@@ -5,10 +5,9 @@ import { Hero } from "@/components/Hero";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { CaseStudyModal } from "@/components/CaseStudyModal";
 import { Services } from "@/components/Services";
-import { Process } from "@/components/Process";
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { MarqueeBar } from "@/components/MarqueeBar";
 
 const CALENDLY_URL = ""; // optional Calendly URL; empty falls back to contact scroll
 const CONTACT_EMAIL = "harshitmadeit@gmail.com";
@@ -60,10 +59,9 @@ export default function Portfolio() {
 
       <main>
         <Hero onBookCall={handleBookCall} onViewWork={scrollToWork} />
-        <MarqueeBar />
         <FeaturedProjects onOpenCase={setActiveProject} />
         <Services />
-        <Process />
+        <About />
         <Contact
           onBookCall={handleBookCall}
           email={CONTACT_EMAIL}

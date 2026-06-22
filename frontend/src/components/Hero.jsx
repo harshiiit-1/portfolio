@@ -14,7 +14,7 @@ export const Hero = ({ onBookCall, onViewWork }) => {
   return (
     <section
       data-testid="hero-section"
-      className="relative isolate overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32"
+      className="relative isolate overflow-hidden pt-36 pb-32 md:pt-44 md:pb-40"
     >
       {/* Backdrop */}
       <div className="absolute inset-0 -z-10 grid-overlay opacity-60" />
@@ -91,33 +91,7 @@ export const Hero = ({ onBookCall, onViewWork }) => {
             View Work
           </button>
         </motion.div>
-
-        {/* Trust line */}
-        <motion.div
-          variants={fadeUp}
-          custom={4}
-          initial="hidden"
-          animate="show"
-          className="mt-20 flex flex-col md:flex-row md:items-end gap-8 md:gap-16 border-t border-zinc-900/5 pt-10"
-        >
-          <Stat label="Years in motion" value="6+" testid="hero-stat-years" />
-          <Stat label="Frames animated" value="120k" testid="hero-stat-frames" />
-          <Stat label="Avg. project length" value="14 days" testid="hero-stat-length" />
-          <div className="ml-auto text-xs text-zinc-900/40 max-w-xs leading-relaxed">
-            Trusted by founders building the next generation of SaaS, dev tools
-            and AI products.
-          </div>
-        </motion.div>
       </div>
     </section>
   );
 };
-
-const Stat = ({ label, value, testid }) => (
-  <div data-testid={testid}>
-    <div className="font-heading text-3xl md:text-4xl tracking-tight">{value}</div>
-    <div className="text-[11px] uppercase tracking-[0.22em] text-zinc-900/45 mt-2">
-      {label}
-    </div>
-  </div>
-);
