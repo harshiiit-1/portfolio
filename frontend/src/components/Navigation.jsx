@@ -40,15 +40,17 @@ export const Navigation = ({ onBookCall }) => {
         <button
           data-testid="nav-logo"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2.5 font-heading text-[15px] tracking-tight font-medium text-zinc-900"
+          className="flex items-center gap-3 font-heading text-[15px] tracking-tight font-medium text-zinc-900"
         >
-          <img
-            src={LOGO_URL}
-            alt="Harshit MadeIt logo"
-            className="h-7 w-auto select-none"
-            draggable={false}
-          />
-          <span className="flex items-center">
+          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-zinc-100 ring-1 ring-zinc-900/10">
+            <img
+              src={LOGO_URL}
+              alt="Harshit MadeIt logo"
+              className="h-full w-full object-cover scale-[1.55] select-none"
+              draggable={false}
+            />
+          </span>
+          <span className="flex items-center leading-none">
             Harshit<span className="text-[#3B82F6]">.</span>
             <span className="text-zinc-900/50 font-normal ml-1">MadeIt</span>
           </span>
