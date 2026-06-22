@@ -61,6 +61,33 @@ let webpackConfig = {
 };
 
 webpackConfig.devServer = (devServerConfig) => {
+  // Migrate CRA's webpack-dev-server v4 API to v5 (resolutions force WDS v5)
+  const before = devServerConfig.onBeforeSetupMiddleware;
+  const after = devServerConfig.onAfterSetupMiddleware;
+  delete devServerConfig.onBeforeSetupMiddleware;
+  delete devServerConfig.onAfterSetupMiddleware;
+
+  // `https` is removed in WDS v5; converted to `server.type`
+  if (devServerConfig.https !== undefined) {
+    if (devServerConfig.https) {
+      devServerConfig.server = {
+        type: "https",
+        options: typeof devServerConfig.https === "object" ? devServerConfig.https : {},
+      };
+    }
+    delete devServerConfig.https;
+  }
+
+  const originalSetupMiddlewaresFromCra = devServerConfig.setupMiddlewares;
+  devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+    if (before) before(devServer);
+    if (originalSetupMiddlewaresFromCra) {
+      middlewares = originalSetupMiddlewaresFromCra(middlewares, devServer);
+    }
+    if (after) after(devServer);
+    return middlewares;
+  };
+
   // Add health check endpoints if enabled
   if (config.enableHealthCheck && setupHealthEndpoints && healthPluginInstance) {
     const originalSetupMiddlewares = devServerConfig.setupMiddlewares;
