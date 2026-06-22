@@ -42,11 +42,11 @@ export const Navigation = ({ onBookCall }) => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-3 font-heading text-[15px] tracking-tight font-medium text-zinc-900"
         >
-          <span className="relative inline-flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-zinc-100 ring-1 ring-zinc-900/10">
+          <span className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-zinc-900/10">
             <img
               src={LOGO_URL}
               alt="Harshit MadeIt logo"
-              className="h-full w-full object-cover scale-[1.55] select-none"
+              className="h-full w-full object-contain p-1 select-none"
               draggable={false}
             />
           </span>
