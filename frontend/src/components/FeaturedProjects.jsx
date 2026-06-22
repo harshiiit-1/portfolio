@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index, onOpen, span }) => {
       className={`group relative overflow-hidden rounded-2xl border border-zinc-900/5 bg-zinc-50 hover-lift hover:border-zinc-900/15 ${span}`}
     >
       {/* Video / thumbnail area — click to play inline */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+      <div className="relative aspect-video overflow-hidden">
         {playing ? (
           <iframe
             data-testid={`project-player-${project.id}`}
@@ -54,7 +54,8 @@ const ProjectCard = ({ project, index, onOpen, span }) => {
             title={project.title}
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            className="absolute inset-0 h-full w-full"
+            frameBorder="0"
+            className="absolute left-1/2 top-1/2 h-[103%] w-[103%] -translate-x-1/2 -translate-y-1/2 border-0"
           />
         ) : (
           <button

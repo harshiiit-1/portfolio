@@ -45,15 +45,16 @@ export const CaseStudyModal = ({ project, onClose, onBookCall }) => {
               <X size={16} />
             </button>
 
-            {/* Vimeo player — cinematic hero */}
-            <div className="relative aspect-video bg-zinc-900">
+            {/* Vimeo player — cinematic hero, edge-to-edge */}
+            <div className="relative aspect-video overflow-hidden">
               <iframe
                 data-testid="case-study-player"
                 src={`https://player.vimeo.com/video/${project.vimeoId}?title=0&byline=0&portrait=0&dnt=1`}
                 title={project.title}
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
-                className="absolute inset-0 h-full w-full"
+                frameBorder="0"
+                className="absolute left-1/2 top-1/2 h-[103%] w-[103%] -translate-x-1/2 -translate-y-1/2 border-0"
               />
             </div>
 
